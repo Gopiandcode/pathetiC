@@ -1,7 +1,6 @@
 import java.util.List;
 
-StringBuilder builder = new StringBuilder("int i = 0; int j = 0; int k = 0; int l = 0; int m = 0; int n = 0; int o = 0; int p = 0; int q = 0; int r = 0; int s = 0;\n" +
-"i = i; j = j; k = k; l = l; m = m; n = n; o = o; p = p; q = q; r = r");
+StringBuilder builder = new StringBuilder("int i = 0; \n int j = 0; \n int k = 1; \n while(i < 10) {\n int t = j + k;\n j = k;\n k = t;\n }");
 int choice = 0;
 
 void setup() {

@@ -566,5 +566,3 @@ class EQComparisonExpression extends OperatorExpression {
         '}';
   }
 }
-
-

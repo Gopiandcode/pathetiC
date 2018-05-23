@@ -28,7 +28,7 @@ public class Generator {
       String a1 = op.a1;
       String a2 = op.a2;
       String result = op.result;
-      java.util.function.Predicate numeric = Pattern.compile("[0-9]+").asPredicate();
+      java.util.function.Predicate numeric = Pattern.compile("^[0-9]+$").asPredicate();
 
       switch(op.type) {
       case ADD:
@@ -244,6 +244,7 @@ public class NextUseAnalyzer {
 
   // moves a variable to a register
   public Register moveToRegister(String id, MIPSSynthesizer synthesizer) { //<>//
+    
     Register r = identifierMap.get(id); //<>//
     if (r == null) {
       r = findFreeRegister(synthesizer);
@@ -307,12 +308,12 @@ public class NextUseAnalyzer {
 
           // update identifiermap to store the new location of the variable
           Register r = identifierMap.get(id);
-          identifierMap.remove(id);
+         //identifierMap.remove(id);
           // update registermap, to update the values stored in the register
-          registerMap.remove(r);
+          //registerMap.remove(r);
           // update lastusedregister to record the last used register
           // update unusedregisters to refer to any unused registers
-          unusedRegisters.add(r);
+         // unusedRegisters.add(r);
           // update memory map to reflect variables in memory
         }
       }
@@ -350,7 +351,7 @@ public class NextUseAnalyzer {
         break;
       }
 
-      java.util.function.Predicate numeric = Pattern.compile("[0-9]+").asPredicate();
+      java.util.function.Predicate numeric = Pattern.compile("^[0-9]+$").asPredicate();
       List<String> values = Arrays.asList(tuple.a1, tuple.a2, tuple.result);
       for (String value : values) {
         if (value != null && !value.isEmpty()) {
